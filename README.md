@@ -15,13 +15,13 @@ StatComputers are also restartable, in that they can be pickled to disk
 as part of a simulation restart file.
 
 StatComputers are implemented for the following distribution functions
- o Isotropic pair correlation function (i.e. h(r) = g(r) - 1)
- o 2-Dimensional pair correlation function 
- o 2-Dimensional orienation correlation function
- o Bond angle about a common atom distribution
- o Mean squared displacment function
- o Velocity autocorrelation function
- o Reversible bond duration distribution
+ * Isotropic pair correlation function (i.e. h(r) = g(r) - 1)
+ * 2-Dimensional pair correlation function 
+ * 2-Dimensional orienation correlation function
+ * Bond angle about a common atom distribution
+ * Mean squared displacment function
+ * Velocity autocorrelation function
+ * Reversible bond duration distribution
 
 LICENSE
 ------------------------------------------------------------------
