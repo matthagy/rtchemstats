@@ -26,7 +26,7 @@ from libc.math cimport floor, ceil, sqrt
 from util cimport c_periodic_distance, PyArray_DATA
 
 
-cdef class BaseIsotropicPairCorrelationComputer:
+cdef class BaseStaticIsotropicPairCorrelationComputer:
     '''Base function for computing an isotropic static pair correlation function
     '''
 

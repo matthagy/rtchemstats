@@ -31,7 +31,7 @@ cdef void copy_N3_array_data(np.ndarray dst, np.ndarray src, unsigned int N) nog
                    N * 3 * sizeof(double))
 
 
-cdef class BaseMeanSquareDisplacementCalculator:
+cdef class BaseMeanSquareDisplacementComputer:
 
     cdef readonly:
         unsigned int window_size, N_particles, n_positions_seen
@@ -149,7 +149,7 @@ cdef class BaseMeanSquareDisplacementCalculator:
             acc_msd_data_p[window_i] += acc_sqr_delta
 
 
-cdef class BaseVelocityAutocorrelationCalculator:
+cdef class BaseVelocityAutocorrelationComputer:
 
     cdef readonly:
         unsigned int window_size, N_particles, n_velocities_seen

@@ -88,6 +88,12 @@ cdef class Hist2DData:
     def __reduce__(self):
         return (self.__class__, (self.a1, self.a2, self.count, self.acc_value))
 
+    def copy(self, other):
+        if not isinstance(other, Hist2DData):
+            raise TypeError
+        return self.__class__(self.a1, self.a2,
+                              self.count, self.acc_value)
+
     def combine(self, other):
         if not isinstance(other, Hist2DData):
             raise TypeError
