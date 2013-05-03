@@ -6,20 +6,20 @@ one to collect high resolution distribution functions with roughly 4 orders
 of magnitude less disk space. In practice 100GB trajectory files have
 been replaced by 50MB state files.
 
-This librariy is based around StatComputers which extract the necesary
+This library is based around StatComputers which extract the necessary
 information from a sequence of simulation configurations to compute
 a specific distribution function. StatComputers are memory efficient
-in that they extract the minimimal information from each configuration.
-The internal analysis code is implemented in Cython for efficency.
+in that they extract the minimal information from each configuration.
+The internal analysis code is implemented in Cython for efficiency.
 StatComputers are also restartable, in that they can be pickled to disk
 as part of a simulation restart file.
 
-StatComputers are implemented for the following distribution functions
+StatComputers are implemented for the following distribution functions:
  * Isotropic pair correlation function (i.e. h(r) = g(r) - 1)
  * 2-Dimensional pair correlation function 
- * 2-Dimensional orienation correlation function
+ * 2-Dimensional orientation correlation function
  * Bond angle about a common atom distribution
- * Mean squared displacment function
+ * Mean squared displacement function
  * Velocity autocorrelation function
  * Reversible bond duration distribution
 
