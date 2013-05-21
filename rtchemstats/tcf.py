@@ -13,8 +13,9 @@
 #  limitations under the License.
 #
 
+import numpy as np
 from .cython.tcf import (BaseMeanSquareDisplacementComputer,
-                             BaseVelocityAutocorrelationComputer)
+                         BaseVelocityAutocorrelationComputer)
 
 class BaseTimeCorelationComputer(object):
     '''Base class for Time Correlation Function (TCF) computations
@@ -30,7 +31,7 @@ class BaseTimeCorelationComputer(object):
         # ensure analyze_rate is passed as a keyword
         return cls(window_size, N_particles, analyze_rate=analyze_rate)
 
-    def compute_time(self):
+    def calculate_time(self):
         return self.analyze_rate * np.arange(self.window_size)
 
 
@@ -65,6 +66,11 @@ def create_msdc(window_size, N_particles, analyze_rate, n_positions_seen,
                                             last_positions=last_positions,
                                             acc_msd_data=acc_msd_data)
 
+class VelocityAutocorrelationFunction(object):
+
+    def __init__(self, t, Cv):
+        self.t = t
+        self.Cv = Cv
 
 class VelocityAutocorrelationComputer(BaseTimeCorelationComputer, BaseVelocityAutocorrelationComputer):
     '''Compute the velocity autocorrelation TCF (VACF); i.e. the self-velocity TCF
@@ -79,6 +85,9 @@ class VelocityAutocorrelationComputer(BaseTimeCorelationComputer, BaseVelocityAu
             return None
 
         return self.acc_correlations / float(n_acc * self.N_particles)
+
+    def get_accumulated(self):
+        return VelocityAutocorrelationFunction(self.calculate_time(), self.compute_vacf())
 
     def __reduce__(self):
         return (create_vacfc,
