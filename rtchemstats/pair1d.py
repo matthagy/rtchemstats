@@ -19,7 +19,7 @@ from functools import wraps
 
 import numpy as np
 
-from .cython.pair1d import BaseIsotropicPairCorrelationComputer
+from .cython.pair1d import BaseStaticIsotropicPairCorrelationComputer
 from .util import cached_property
 
 
@@ -72,7 +72,7 @@ class StaticIsotropicPairCorrelation(object):
             return None
 
         r_max = self.pair_distance_histogram.size * self.dr
-        V = 4.0 / 3.0 * np.pi * r_max**3
+        V = 4.0 / 3.0 * np.pi * ((self.r_offset + r_max)**3 - self.r_offset**3)
         rho = N / V
         v = 4.0 / 3.0 * np.pi * ((self.r_lower + self.dr)**3 - self.r_lower**3)
         rhos =  self.pair_distance_histogram / v
