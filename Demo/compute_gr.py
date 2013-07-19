@@ -1,4 +1,4 @@
-'''Compute the pair distribution function g(r) for Lennard Jones
+'''Compute the pair distribution function g(r) for a Lennard Jones
    system at T=1.46 and rho=0.4. Results can be compared to Fig. 1
    of Verlet L. Phys. Rev. 165. 201. (1968)
 '''
